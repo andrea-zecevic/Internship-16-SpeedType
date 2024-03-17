@@ -1,0 +1,21 @@
+.header {
+  background-color: navy;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.buttonGroup {
+  display: flex;
+}
