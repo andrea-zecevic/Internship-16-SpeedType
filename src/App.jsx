@@ -2,6 +2,7 @@ import React from "react";
 import { CssBaseline, Container } from "@mui/material";
 import Header from "./components/Header";
 import { GameProvider } from "./contexts/GameContext";
+import Game from "./components/Game";
 
 function App() {
   return (
@@ -9,14 +10,7 @@ function App() {
       <CssBaseline />
       <Header />
       <Container component="main" maxWidth="lg">
-        {}
-        {}
-        <h2>Welcome to SpeedType</h2>
-        <p>
-          This is a simple typing practice application to improve your typing
-          speed.
-        </p>
-        {}
+        <Game />
       </Container>
     </GameProvider>
   );

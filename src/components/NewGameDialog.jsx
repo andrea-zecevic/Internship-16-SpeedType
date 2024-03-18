@@ -7,23 +7,38 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
+import { useContext } from "react";
 
-const NewGameDialog = ({ open, onClose }) => (
-  <Dialog open={open} onClose={onClose}>
-    <DialogTitle>{"Start a New Game"}</DialogTitle>
-    <DialogContent>
-      <DialogContentText>Choose your mode:</DialogContentText>
-      <Button color="primary" onClick={onClose}>
-        Regular Mode
-      </Button>
-      <Button color="secondary" onClick={onClose}>
-        Instant Death Mode
-      </Button>
-    </DialogContent>
-    <DialogActions>
-      <Button onClick={onClose}>Cancel</Button>
-    </DialogActions>
-  </Dialog>
-);
+import { GameContext } from "../contexts/GameContext";
+
+const NewGameDialog = ({ open, onClose }) => {
+  const { setMode } = useContext(GameContext);
+
+  const handleModeChange = (mode) => {
+    setMode(mode);
+    onClose();
+  };
+
+  return (
+    <Dialog open={open} onClose={onClose}>
+      <DialogTitle>{"Start a New Game"}</DialogTitle>
+      <DialogContent>
+        <DialogContentText>Choose your mode:</DialogContentText>
+        <Button color="primary" onClick={() => handleModeChange("Regular")}>
+          Regular Mode
+        </Button>
+        <Button
+          color="secondary"
+          onClick={() => handleModeChange("InstantDeath")}
+        >
+          Instant Death Mode
+        </Button>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose}>Cancel</Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
 
 export default NewGameDialog;
